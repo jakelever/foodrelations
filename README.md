@@ -4,13 +4,15 @@ This project is a demonstration of a very basic text mining approach to extract 
 
 ## How it works.
 
-The diagram below outlines the key concepts of the project. The first stage involves the cooccurrenceExtractor.py script. It loads drug terms from [PubChem](https://pubchem.ncbi.nlm.nih.gov/) and a list of food items from the [Food Ontology](https://github.com/FoodOntology/foodon). It then loads each document and identifies all the drug and food terms using dictionary matching. It then outputs all the cooccurrences of these terms. This first stage is run multiple times for all the document files provided. The second stage uses the combineCooccurrences.py script. It takes the output of the multiple runs of the first stage and combines them together.
+The diagram below outlines the key concepts of the project. The first stage involves the [cooccurrenceExtractor.py](https://github.com/jakelever/foodrelations/blob/master/cooccurrenceExtractor.py) script. It loads drug terms from [PubChem](https://pubchem.ncbi.nlm.nih.gov/) and a list of food items from the [Food Ontology](https://github.com/FoodOntology/foodon). It then loads each document and identifies all the drug and food terms using dictionary matching. It then outputs all the cooccurrences of these terms. This first stage is run multiple times for all the document files provided. The second stage uses the [combineCooccurrences.py](https://github.com/jakelever/foodrelations/blob/master/combineCooccurrences.py) script. It takes the output of the multiple runs of the first stage and combines them together.
+
+![Diagram of FoodRelations project](diagram.png)
 
 ## Dependendencies
 
 This project has a couple dependencies:
-- PubRunner (which can be installed using pip)
-- AGRICOLA (which is not currently publically available)
+- [PubRunner](https://github.com/jakelever/pubrunner) (which can be installed using pip)
+- [AGRICOLA](https://agricola.nal.usda.gov/) (which is not currently publically available)
 
 ## Execution
 
@@ -22,6 +24,6 @@ pubrunner --test .
 
 Remove the "--test" to execute the very large full run.
 
-## Technical Details
+## File Info
 
-The two scripts cooccurrenceExtractor.py and combineCooccurrences.py are both short and contain comments on how they work. The other key file is pubrunner.yml which describes the resources and commands that PubRunner needs to run the project.
+The two scripts [cooccurrenceExtractor.py](https://github.com/jakelever/foodrelations/blob/master/cooccurrenceExtractor.py) and [combineCooccurrences.py](https://github.com/jakelever/foodrelations/blob/master/combineCooccurrences.py) are both short and contain comments on how they work. The other key file is [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) which describes the resources and commands that PubRunner needs to run the project.
