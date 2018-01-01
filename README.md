@@ -12,7 +12,7 @@ The diagram below outlines the key concepts of the project. The first stage invo
 
 This project has a couple dependencies:
 - [PubRunner](https://github.com/jakelever/pubrunner) (which can be installed using pip)
-- [AGRICOLA](https://agricola.nal.usda.gov/) (which is not currently publically available)
+- [AGRICOLA](https://agricola.nal.usda.gov/) (which is not currently publicly available)
 
 ## Execution
 
@@ -42,7 +42,7 @@ This file describes the two resources to be used (PUBMED and AGRICOLA). These ar
 
 As noted above, PubRunner can be run in test mode (which uses a smaller version of the resources: AGRICOLA/PUBMED) and hence runs much more quickly. This information is also defined in the [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) file and used with the --test flag. 
 
-The files in [resources/](https://github.com/jakelever/foodrelations/blob/master/resources/) define where the AGRICOLA and AGRICOLA_TWOFILES data files can be found. These aren't currently publically available.
+The files in [resources/](https://github.com/jakelever/foodrelations/blob/master/resources/) define where the AGRICOLA and AGRICOLA_TWOFILES data files can be found. These aren't currently publicly available.
 
 ## Future Ideas
 
