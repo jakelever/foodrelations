@@ -8,7 +8,7 @@ The diagram below outlines the key concepts of the project. The first stage invo
 
 ![Diagram of FoodRelations project](diagram.png)
 
-## Dependendencies
+## Dependencies
 
 This project has a couple dependencies:
 - [PubRunner](https://github.com/jakelever/pubrunner) (which can be installed using pip)
