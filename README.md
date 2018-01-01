@@ -40,6 +40,17 @@ This project takes advantage of the [PubRunner project](https://github.com/jakel
 
 This file describes the two resources to be used (PUBMED and AGRICOLA). These are in different formats Pubmed XML and Marc XML respectively. The [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) requests that they are both converted to BioC XML format before running the associated Python scripts for this project.a
 
+As noted above, PubRunner can be run in test mode (which uses a smaller version of the resources: AGRICOLA/PUBMED) and hence runs much more quickly. This information is also defined in the [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) file and used with the --test flag. 
+
+The files in [resources/](https://github.com/jakelever/foodrelations/blob/master/resources/) define where the AGRICOLA and AGRICOLA_TWOFILES data files can be found. These aren't currently publically available.
+
+## Future Ideas
+
+This is a very simple implementation to show the power of bringing different resources (PubMed, AGRICOLA, PubChem and FoodOn) together using PubRunner. Below are a few ideas to improve this:
+
+- Improve the tokenization using Spacy
+- Clean up the term files using some custom filters
+- Visualisation of the resulting data
 
 
 
