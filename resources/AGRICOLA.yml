@@ -1,4 +1,4 @@
 name: AGRICOLA
-directory: /home/jlever/AGRICOLA
+directory: /panfs/pan1.be-md.ncbi.nlm.nih.gov/product_manager_research_projects/Jake/AGRICOLA
 type: local
-format: pubmedxml
+format: marcxml

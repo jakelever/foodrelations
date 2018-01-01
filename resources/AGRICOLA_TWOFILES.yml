@@ -1,4 +1,4 @@
 name: AGRICOLA_TWOFILES
-directory: /home/jlever/AGRICOLA_TEST
+directory: /panfs/pan1.be-md.ncbi.nlm.nih.gov/product_manager_research_projects/Jake/AGRICOLA_TEST
 type: local
-format: pubmedxml
+format: marcxml
