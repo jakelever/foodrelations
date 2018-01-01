@@ -1,33 +1,28 @@
 name: FoodRelations
 version: 0.1
-url: https://github.com/jakelever/pubrunner/tree/master/examples/FoodRelations
+url: https://github.com/jakelever/foodrelations
 resources:
    all:
       - PUBCHEM
       - FOODON
    full:
-#      - PUBMED:
-#         format: bioc
+      - PUBMED:
+           format: bioc
       - AGRICOLA:
-         format: bioc
-#      - PMCOA:
-#        format: bioc
+           format: bioc
    test:
-#      - PUBMED_TWOFILES:
-#        rename: PUBMED
-#        format: bioc
+      - PUBMED_TWOFILES:
+           rename: PUBMED
+           format: bioc
       - AGRICOLA_TWOFILES:
            rename: AGRICOLA
            format: bioc
-#      - PMCOA_TWOFILES:
-#        rename: PMCOA
-#        format: bioc
 build:
-   - python generateDrugTerms.py --pubChemMeshPharmFile {IN:PUBCHEM}/MeSH-Pharm --stopwords stopwords.chemical.plusCommon.txt --outFile {OUT:CHEMICAL.JSON}
-#   - python extractFoodOnTerms.py --owlFiles {IN:FOODON}/imports/langual_import.owl,{IN:FOODON}/imports/ncbitaxon_import.owl,{IN:FOODON}/imports/foodon_product_import.owl,{IN:FOODON}/imports/product_type_import.owl --outFile {OUT:FOOD.JSON}
-   - cp food.json {OUT:FOOD.JSON}
+   - python generateDrugTerms.py --pubChemMeshPharmFile {IN:PUBCHEM}/MeSH-Pharm --stopwords stopwords.chemical.plusCommon.txt --outFile {OUT:chemical.json}
+   - cp food.json {OUT:food.json}
 run:
-   - python cooccurrenceExtractor.py --biocFile {IN:AGRICOLA/%.xml} --wordlist1 {IN:FOOD.JSON} --wordlist2 {IN:CHEMICAL.JSON} --outFile {OUT:TMPDIR/%.cooccurrences}
-   - python combineCooccurrences.py --inDir {IN:TMPDIR} --outFile {OUT:RESULTS.TXT}
-output: RESULTS.TXT
+   - python cooccurrenceExtractor.py --biocFile {IN:AGRICOLA/%} --wordlist1 {IN:food.json} --wordlist2 {IN:chemical.json} --outFile {OUT:tmp/%.cooccurrences}
+   - python cooccurrenceExtractor.py --biocFile {IN:PUBMED/%} --wordlist1 {IN:food.json} --wordlist2 {IN:chemical.json} --outFile {OUT:tmp/%.cooccurrences}
+   - python combineCooccurrences.py --inDir {IN:tmp} --outFile {OUT:results.txt}
+output: results.txt
 
