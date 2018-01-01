@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
 	assert os.path.isdir(args.inDir)
 
+	print("Loading and merging cooccurrences from directory %s..." % args.inDir)
 	counter = Counter()
 	for filename in os.listdir(args.inDir):
 		fullpath = os.path.join(args.inDir,filename)
@@ -20,7 +21,10 @@ if __name__ == '__main__':
 				a,b,count = line.strip().split('\t')
 				counter[(a,b)] += int(count)
 
+	print("Sorting merged cooccurrences...")
 	keys = sorted(counter.keys())
+
+	print("Outputting merged cooccurrences..."
 	with codecs.open(args.outFile,'w','utf-8') as outF:
 		for a,b in keys:
 			count = counter[(a,b)]

@@ -24,6 +24,22 @@ pubrunner --test .
 
 Remove the "--test" to execute the very large full run.
 
-## File Info
+## More Details
 
-The two scripts [cooccurrenceExtractor.py](https://github.com/jakelever/foodrelations/blob/master/cooccurrenceExtractor.py) and [combineCooccurrences.py](https://github.com/jakelever/foodrelations/blob/master/combineCooccurrences.py) are both short and contain comments on how they work. The other key file is [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) which describes the resources and commands that PubRunner needs to run the project.
+### Wordlist Data
+
+This project relies on two data files that contain wordlists for food items and drug items. The food items file is preprocessed and stored as [food.json](https://github.com/jakelever/foodrelations/blob/master/food.json). This makes use of the [Food Ontology](https://github.com/FoodOntology/foodon) and was generated using the [extractFoodOnTerms.py](https://github.com/jakelever/foodrelations/blob/master/extractFoodOnTerms.py). The drug terms are generated using the PubChem list of chemicals associated with MeSH terms. The [generateDrugTerms.py](https://github.com/jakelever/foodrelations/blob/master/generateDrugTerms.py) is used to quickly parse this file and extract the needed terms.
+
+### Data Processing
+
+The two scripts [cooccurrenceExtractor.py](https://github.com/jakelever/foodrelations/blob/master/cooccurrenceExtractor.py) and [combineCooccurrences.py](https://github.com/jakelever/foodrelations/blob/master/combineCooccurrences.py) are both short and use basic Python with no external libraries. [cooccurrenceExtractor.py](https://github.com/jakelever/foodrelations/blob/master/cooccurrenceExtractor.py) loads the two wordlists (food and drugs) and starts processing a document that must be in [BioC format](http://bioc.sourceforge.net/). It makes use of the BioC python library to load the document. It then does very naive tokenization (using whitespace) and identifies all terms from the associated wordlists. It outputs every cooccurrence of food and drugs within each document. This script is executed for multiple files and hence there are many output files that need to be merged. The [combineCooccurrences.py](https://github.com/jakelever/foodrelations/blob/master/combineCooccurrences.py) script takes care of this.
+
+### PubRunner
+
+This project takes advantage of the [PubRunner project](https://github.com/jakelever/pubrunner) to deal with downloading corpora, format conversion and execution of the tools. The key to this is the is [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) which describes the resources and commands that PubRunner needs to run the project.
+
+This file describes the two resources to be used (PUBMED and AGRICOLA). These are in different formats Pubmed XML and Marc XML respectively. The [pubrunner.yml](https://github.com/jakelever/foodrelations/blob/master/pubrunner.yml) requests that they are both converted to BioC XML format before running the associated Python scripts for this project.a
+
+
+
+

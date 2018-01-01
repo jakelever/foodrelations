@@ -332,8 +332,6 @@ if __name__ == '__main__':
 					term = t[textField]
 					if len(term) >= 3 and not term.lower() in stopwords:
 						termList[tid].add(t[textField])
-		#with open('table.json','w') as outF:
-		#	json.dump(table,outF,indent=2,sort_keys=True)
 
 	termList = { k:sorted(list(termList[k])) for k in termList.keys() }
 
